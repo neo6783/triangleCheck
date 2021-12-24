@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Vue3 check</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>三角形判断</h1>
+      <div>该程序从一个输入对话框中读取三个整数值。 这三个整数值代表了三角形三边的长度。程序显示提示信息，指出该三角形究竟是不规则三角形、 等腰三角形还是等边三角形。</div>
+      <div class="center-form">
+      <div v-for="(num,index) in triangle">
+         {{sideName(index)}}:
+         <input 
+         title="sideName(index)"
+         type="number" 
+         min="1" 
+         max="1000" 
+         :onkeyup="formatInt"
+         :oninput="formatInt"
+         v-model="triangle[index]">
+        </input>
+      </div>
+      </div>
+      <div>你的输入为：</div>
+      <div class="number" v-for="(num,index) in triangle">
+        {{num}}
+      </div>
+      <br>
+      <div :class="resClass">{{result}}</div>
+    </div>
+    <!-- built files will be auto injected -->
+    <script src="libs/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+
+    <script src="app.js"></script>
+  </body>
+</html>
